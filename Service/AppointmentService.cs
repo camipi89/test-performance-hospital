@@ -29,7 +29,7 @@ namespace testperformance.Services
         {
             try
             {
-                Console.WriteLine(" Enter the appointment date (example: 2025-10-14 15:30):");
+                Console.WriteLine(" Enter the appointment date (example: 2025-10-14 11:11):");
                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime date))
                 {
                     Console.WriteLine(" Invalid Date.");
