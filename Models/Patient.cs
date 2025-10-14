@@ -23,7 +23,7 @@ namespace testperformance.Models
         public Patient(int id, string document, string name, int age, string phone, string email)
         {
             if (string.IsNullOrWhiteSpace(document))
-                throw new ArgumentException("El documento es obligatorio.", nameof(document));
+                throw new ArgumentException("The document is mandatory.", nameof(document));
 
             if (string.IsNullOrWhiteSpace(name))
                 name = "UNKNOWN";
@@ -35,8 +35,8 @@ namespace testperformance.Models
             Document = document;
             Name = name;
             Age = age;
-            Phone = string.IsNullOrWhiteSpace(phone) ? "NO PHONE" : phone;
-            Email = string.IsNullOrWhiteSpace(email) ? "NO EMAIL" : email;
+            Phone = string.IsNullOrWhiteSpace(phone) ? "No phone" : phone;
+            Email = string.IsNullOrWhiteSpace(email) ? "No E-mail" : email;
         }
 
         // method
