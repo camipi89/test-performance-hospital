@@ -1,3 +1,4 @@
+using testperformance.Models;
 namespace testperformance.Data
 {
     public static class Database

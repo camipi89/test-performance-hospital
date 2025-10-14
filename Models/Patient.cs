@@ -1,27 +1,63 @@
 
-public class Patient
+
+using testperformance.Interface;
+
+
+namespace testperformance.Models
 {
-    public int Id { get; set; }
-    public string Document { get; set; } = null!;
-    public string? Name { get; set; }
-    public int Age { get; set; }
-    public string? Phone { get; set; }
-    public string? Email { get; set; }
-
-
-
-
-    public Patient(int id, string? document, string? name, int age, string? phone, string? email)
+    public class Patient : Iregister, INotificable
     {
-        Id = id;
-        Document = document ?? throw new ArgumentNullException(nameof(document));
-        Name = name;
-        Age = age;
-        Phone = phone;
-        Email = email;
+        
+        public int Id { get; private set; } 
+        public string Document { get; private set; } 
+        public string Name { get; private set; } = "UNKNOWN";
+        public int Age { get; private set; }
+        public string Phone { get; private set; } = "No phone";
+        public string Email { get; private set; } = "No email";
+
+
+
+        //  BUILDER 
+
+
+        public Patient(int id, string document, string name, int age, string phone, string email)
+        {
+            if (string.IsNullOrWhiteSpace(document))
+                throw new ArgumentException("El documento es obligatorio.", nameof(document));
+
+            if (string.IsNullOrWhiteSpace(name))
+                name = "UNKNOWN";
+
+            if (age <= 0)
+                age = 1;
+
+            Id = id;
+            Document = document;
+            Name = name;
+            Age = age;
+            Phone = string.IsNullOrWhiteSpace(phone) ? "NO PHONE" : phone;
+            Email = string.IsNullOrWhiteSpace(email) ? "NO EMAIL" : email;
+        }
+
+        // method
+        public void UpdateInfo(string name, int age, string phone, string email)
+        {
+            Name = string.IsNullOrWhiteSpace(name) ? Name : name;
+            Age = age > 0 ? age : Age;
+            Phone = string.IsNullOrWhiteSpace(phone) ? Phone : phone;
+            Email = string.IsNullOrWhiteSpace(email) ? Email : email;
+        }
+
+        public void Iregister()
+        {
+            Console.WriteLine($" Patient Name: {Name} (Document: {Document}) registered succesfully.");
+        }
+
+        public void INotificable()
+        {
+            Console.WriteLine($"Notification to: {Name} (Document: {Document})");
+        }
+
+        
     }
-    
-
-    
-
 }
