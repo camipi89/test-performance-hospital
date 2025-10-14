@@ -75,7 +75,7 @@ namespace testperformance.Service
             }
         }
 
-        // list all patients 
+        // list all patients
         public void ListPatients()
         {
             var patients = _patientRepository.GetAll().ToList();
@@ -93,7 +93,7 @@ namespace testperformance.Service
             }
         }
 
-         // 🔍 Buscar paciente por ID
+         //  search for ID patient
         public void GetPatientById()
         {
             Console.WriteLine("Increase the patient ID:");
@@ -159,7 +159,7 @@ namespace testperformance.Service
                 patient.Email = newEmail;
 
             _patientRepository.Update(patient);
-            Console.WriteLine("✅ Patient update successfully.");
+            Console.WriteLine(" Patient update successfully.");
         }
 
         //  Delete patient 

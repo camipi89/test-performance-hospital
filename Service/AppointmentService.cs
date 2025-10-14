@@ -24,7 +24,7 @@ namespace testperformance.Services
             _patientRepository = patientRepository;
         }
 
-        // ✅ Agendar una nueva cita
+        // schedule new appointment
         public void ScheduleAppointment()
         {
             try
@@ -43,7 +43,7 @@ namespace testperformance.Services
                     return;
                 }
 
-                Console.WriteLine("🧍 Enter the ID patient:");
+                Console.WriteLine(" Enter the ID patient:");
                 if (!int.TryParse(Console.ReadLine(), out int patientId))
                 {
                     Console.WriteLine("inválid ID patient.");
@@ -53,7 +53,7 @@ namespace testperformance.Services
                 Console.WriteLine("Date reason:");
                 string? reason = Console.ReadLine();
 
-                // Validar existencia de doctor y paciente
+                // validate existence of doctor and patient
                 var doctor = _doctorRepository.GetById(doctorId);
                 var patient = _patientRepository.GetById(patientId);
 
@@ -88,7 +88,7 @@ namespace testperformance.Services
             }
         }
 
-        //  Listar todas las citas
+        //  List all appointments
         public void ListAppointments()
         {
             var appointments = _appointmentRepository.GetAll().ToList();
@@ -106,7 +106,7 @@ namespace testperformance.Services
             }
         }
 
-        // 🔍 Buscar citas por ID de paciente
+        // search appointmens by patient id
         public void GetAppointmentsByPatient(int patientId)
         {
             var appointments = _appointmentRepository.GetAll().Where(a => a.PatientId == patientId).ToList();
@@ -124,7 +124,7 @@ namespace testperformance.Services
             }
         }
 
-        // Cancelar cita
+        // Cancel appointment by id 
         public void CancelAppointment(int id)
         {
             var appointment = _appointmentRepository.GetById(id);
