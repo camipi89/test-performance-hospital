@@ -36,23 +36,39 @@ The project follows a **layered architecture** to keep the code modular, maintai
 
 # Project Structure
 
-/testperformance
+testperformance
 ├── /Menus
-│   ├── MainMenu.cs
-│   ├── PatientMenu.cs
-│   ├── DoctorMenu.cs
-│   └── AppointmentMenu.cs
+│   ├── MainMenu.cs            # Menú principal que dirige a los submenús.
+│   ├── PatientMenu.cs         # Menú para gestionar pacientes.
+│   ├── DoctorMenu.cs          # Menú para gestionar doctores.
+│   └── AppointmentMenu.cs     # Menú para gestionar citas médicas.
 ├── /Service
-│   ├── PatientService.cs
-│   ├── DoctorService.cs
-│   └── AppointmentService.cs
+│   ├── PatientService.cs       # Lógica de negocio para pacientes.
+│   ├── DoctorService.cs        # Lógica de negocio para doctores.
+│   └── AppointmentService.cs   # Lógica de negocio para citas médicas.
 ├── /Models
-│   ├── Patient.cs
-│   ├── Doctor.cs
-│   └── Appointment.cs
+│   ├── Patient.cs              # Modelo de datos para pacientes.
+│   ├── Doctor.cs               # Modelo de datos para doctores.
+│   └── Appointment.cs            # Modelo de datos para citas médicas.
 ├── /Interface
-│   └── IGenericRepository.cs
-└── Program.cs
+│   ├── IGenericRepository.cs     # Interfaz genérica para repositorios.
+│   ├── IPatientRepository.cs     # Interfaz específica para pacientes.
+│   ├── IDoctorRepository.cs      # Interfaz específica para doctores.
+│   └── IAppointmentRepository.cs   # Interfaz específica para citas médicas.
+├── /Repositories
+│   ├── GenericRepository.cs      # Implementación genérica de repositorios.
+│   ├── PatientRepository.cs      # Repositorio específico para pacientes.
+│   ├── DoctorRepository.cs       # Repositorio específico para doctores.
+│   └── AppointmentRepository.cs    # Repositorio específico para citas médicas.
+├── /Exceptions
+│   ├── DuplicateRecordException.cs   # Excepción para registros duplicados.
+│   ├── NotFoundException.cs          # Excepción para registros no encontrados.
+│   └── ValidationException.cs        # Excepción para errores de validación.
+├── /Utils
+│   ├── DateValidator.cs          # Utilidad para validar fechas.
+│   ├── InputHelper.cs            # Métodos para manejar entradas del usuario.
+│   └── Logger.cs                 # Utilidad para registrar logs o errores.
+└── Program.cs  
 # ----------------------------------------------------------------------------------------------------------------------------
 
 Code: 
