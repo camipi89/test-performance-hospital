@@ -8,12 +8,12 @@ namespace testperformance.Models
     public class Patient : Iregister, INotificable
     {
         
-        public int Id { get; private set; } 
-        public string Document { get; private set; } 
-        public string Name { get; private set; } = "UNKNOWN";
-        public int Age { get; private set; }
-        public string Phone { get; private set; } = "No phone";
-        public string Email { get; private set; } = "No email";
+        public int Id { get;  set; } 
+        public string Document { get; set; } 
+        public string Name { get; set; } = "UNKNOWN";
+        public int Age { get; set; }
+        public string Phone { get; set; } = "No phone";
+        public string Email { get; set; } = "No email";
 
 
 

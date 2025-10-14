@@ -29,28 +29,28 @@ namespace testperformance.Services
         {
             try
             {
-                Console.WriteLine(" Ingrese la fecha de la cita (ejemplo: 2025-10-14 15:30):");
+                Console.WriteLine(" Enter the appointment date (example: 2025-10-14 15:30):");
                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime date))
                 {
-                    Console.WriteLine(" Fecha inválida.");
+                    Console.WriteLine(" Invalid Date.");
                     return;
                 }
 
-                Console.WriteLine("👨‍⚕️ Ingrese el ID del médico:");
+                Console.WriteLine("Enter the ID doctor:");
                 if (!int.TryParse(Console.ReadLine(), out int doctorId))
                 {
                     Console.WriteLine("ID de médico inválido.");
                     return;
                 }
 
-                Console.WriteLine("🧍 Ingrese el ID del paciente:");
+                Console.WriteLine("🧍 Enter the ID patient:");
                 if (!int.TryParse(Console.ReadLine(), out int patientId))
                 {
-                    Console.WriteLine(" ID de paciente inválido.");
+                    Console.WriteLine("inválid ID patient.");
                     return;
                 }
 
-                Console.WriteLine("Motivo de la cita:");
+                Console.WriteLine("Date reason:");
                 string? reason = Console.ReadLine();
 
                 // Validar existencia de doctor y paciente
@@ -58,9 +58,9 @@ namespace testperformance.Services
                 var patient = _patientRepository.GetById(patientId);
 
                 if (doctor == null)
-                    throw new NotFoundException("El médico no existe.");
+                    throw new NotFoundException("The doctor doesn't exist.");
                 if (patient == null)
-                    throw new NotFoundException("El paciente no existe.");
+                    throw new NotFoundException("The patient doesn't exist.");
 
                 // Validar que no existan conflictos de horario
                 var appointments = _appointmentRepository.GetAll();
@@ -68,23 +68,23 @@ namespace testperformance.Services
                 bool patientBusy = appointments.Any(a => a.PatientId == patientId && a.Date == date);
 
                 if (doctorBusy)
-                    throw new InvalidOperationException("El médico ya tiene una cita en ese horario.");
+                    throw new InvalidOperationException("The doctor already has an appointment at that time.");
                 if (patientBusy)
-                    throw new InvalidOperationException("El paciente ya tiene una cita en ese horario.");
+                    throw new InvalidOperationException("The patient already has an appointment at that time.");
 
                 // Crear nueva cita
                 Appointment newAppointment = new Appointment(nextId++, date, doctorId, patientId, reason);
                 _appointmentRepository.Add(newAppointment);
 
-                Console.WriteLine($"Cita programada correctamente para el {date} con el Dr. {doctor.Name}.");
+                Console.WriteLine($"Appointment scheduled correctly for the {date} with the Dr. {doctor.Name}.");
             }
-            catch (NotFoundException nfEx)
+            catch (NotFoundException Ex)
             {
-                Console.WriteLine($" {nfEx.Message}");
+                Console.WriteLine($" {Ex.Message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al agendar la cita: {ex.Message}");
+                Console.WriteLine($"Error scheduling the appointment: {ex.Message}");
             }
         }
 
@@ -95,14 +95,14 @@ namespace testperformance.Services
 
             if (!appointments.Any())
             {
-                Console.WriteLine("No hay citas registradas.");
+                Console.WriteLine("There is not dates registered.");
                 return;
             }
 
-            Console.WriteLine("\n=== LISTA DE CITAS ===");
+            Console.WriteLine("\n=== Dates Lists ===");
             foreach (var app in appointments)
             {
-                Console.WriteLine($"ID: {app.Id} | Fecha: {app.Date} | Médico ID: {app.DoctorId} | Paciente ID: {app.PatientId} | Motivo: {app.Reason}");
+                Console.WriteLine($"The ID: {app.Id} | The Date: {app.Date} | The Doctor ID: {app.DoctorId} | Patient ID: {app.PatientId} | Reason: {app.Reason}");
             }
         }
 
@@ -113,14 +113,14 @@ namespace testperformance.Services
 
             if (!appointments.Any())
             {
-                Console.WriteLine("El paciente no tiene citas registradas.");
+                Console.WriteLine("The patient have not dates registered.");
                 return;
             }
 
-            Console.WriteLine($"Citas del paciente con ID {patientId}:");
+            Console.WriteLine($"Patient Dates by ID {patientId}:");
             foreach (var app in appointments)
             {
-                Console.WriteLine($"🗓️ Fecha: {app.Date} | Motivo: {app.Reason}");
+                Console.WriteLine($"Date: {app.Date} | Reason: {app.Reason}");
             }
         }
 
@@ -130,12 +130,12 @@ namespace testperformance.Services
             var appointment = _appointmentRepository.GetById(id);
             if (appointment == null)
             {
-                Console.WriteLine("No se encontró la cita.");
+                Console.WriteLine("There are not found dates.");
                 return;
             }
 
             _appointmentRepository.Delete(appointment);
-            Console.WriteLine("❌ Cita cancelada correctamente.");
+            Console.WriteLine("Date cancelled correctly.");
         }
     }
 }
