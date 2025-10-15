@@ -63,5 +63,30 @@ namespace testperformance.Service
         {
             return _appointments.Where(a => a.DoctorId == doctorId);
         }
+
+        internal void MarkAppointmentAsCompleted(int completeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ScheduleAppointment()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void CancelAppointment(int cancelId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ListAppointmentsByPatient(int patientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ListAppointmentsByDoctor(int doctorId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -22,33 +22,55 @@ namespace testperformance.Menus
                 Console.WriteLine("0. Return to the Main Menu");
                 Console.Write("Select a option: ");
 
-                string? option = Console.ReadLine();
+               string? option = Console.ReadLine();
 
                 switch (option)
                 {
                     case "1":
                         _service.ScheduleAppointment();
                         break;
+
                     case "2":
-                        _service.CancelAppointment();
+                        Console.Write("Enter appointment ID to cancel: ");
+                        if (int.TryParse(Console.ReadLine(), out int cancelId))
+                            _service.CancelAppointment(cancelId);
+                        else
+                            Console.WriteLine("Invalid ID.");
                         break;
+
                     case "3":
-                        _service.MarkAsCompleted();
+                        Console.Write("Enter appointment ID to mark as completed: ");
+                        if (int.TryParse(Console.ReadLine(), out int completeId))
+                            _service.MarkAppointmentAsCompleted(completeId);
+                        else
+                            Console.WriteLine("Invalid ID.");
                         break;
+
                     case "4":
-                        _service.ListByPatient();
+                        Console.Write("Enter patient ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int patientId))
+                            _service.ListAppointmentsByPatient(patientId);
+                        else
+                            Console.WriteLine("Invalid ID.");
                         break;
+
                     case "5":
-                        _service.ListByDoctor();
+                        Console.Write("Enter doctor ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int doctorId))
+                            _service.ListAppointmentsByDoctor(doctorId);
+                        else
+                            Console.WriteLine("Invalid ID.");
                         break;
+
                     case "0":
                         return;
+
                     default:
-                        Console.WriteLine("Invalid option.");
+                        Console.WriteLine("Invalid option. Try again.");
                         break;
                 }
 
-                Console.WriteLine("Press a teckle to continue...");
+                Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey();
             }
         }

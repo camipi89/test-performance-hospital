@@ -1,4 +1,4 @@
-#  Medical Appointment Management System
+#  Medical Appointment Management System Hospital - San Vicente
 
 This project is a **C# console application** built with a **layered architecture**, designed to manage **patients**, **doctors**, and **appointments** in a structured way.  
 It’s ideal for practicing clean architecture principles such as **separation of concerns**, **repository pattern**, and **basic dependency injection**.

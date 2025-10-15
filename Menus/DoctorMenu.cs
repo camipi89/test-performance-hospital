@@ -54,4 +54,32 @@ namespace testperformance.Menus
             }
         }
     }
+
+    internal class DoctorService
+    {
+        internal void DeleteDoctor()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void GetDoctorById()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ListDoctors()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RegisterDoctor()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void UpdateDoctor()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

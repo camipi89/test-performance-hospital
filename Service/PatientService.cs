@@ -14,6 +14,10 @@ namespace testperformance.Service
             _patientRepository = patientRepository;
         }
 
+        public PatientService()
+        {
+        }
+
 
 
         // register new patient

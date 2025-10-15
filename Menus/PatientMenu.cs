@@ -43,7 +43,7 @@ namespace testperformance.Menus
                         patientService.DeletePatient();
                         break;
                     case "0":
-                        return; // Regresa al menú principal
+                        return; 
                     default:
                         Console.WriteLine("Invalid option. Please try again.");
                         break;
