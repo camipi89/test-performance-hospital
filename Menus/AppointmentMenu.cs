@@ -62,6 +62,10 @@ namespace testperformance.Menus
                             Console.WriteLine("Invalid ID.");
                         break;
 
+                    case "6":
+                         _emailService.ShowEmailHistory();
+                         break;
+
                     case "0":
                         return;
 

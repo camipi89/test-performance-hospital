@@ -22,6 +22,7 @@ namespace testperformance.Services
             _appointmentRepository = appointmentRepository;
             _doctorRepository = doctorRepository;
             _patientRepository = patientRepository;
+             _emailService = emailService;
         }
 
         // schedule new appointment
@@ -39,7 +40,7 @@ namespace testperformance.Services
                 Console.WriteLine("Enter the ID doctor:");
                 if (!int.TryParse(Console.ReadLine(), out int doctorId))
                 {
-                    Console.WriteLine("ID de médico inválido.");
+                    Console.WriteLine("ID Doctor inválid.");
                     return;
                 }
 
@@ -86,6 +87,8 @@ namespace testperformance.Services
             {
                 Console.WriteLine($"Error scheduling the appointment: {ex.Message}");
             }
+
+
         }
 
         //  List all appointments
