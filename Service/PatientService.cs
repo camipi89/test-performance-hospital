@@ -5,7 +5,7 @@ namespace testperformance.Service
 {
     public class PatientService
     {
-        private readonly IGenericRepository<Patient> _patientRepository;
+        private readonly IGenericRepository<Patient> _patientRepository = null!;
         private static int nextId = 1;
 
 
@@ -13,6 +13,8 @@ namespace testperformance.Service
         {
             _patientRepository = patientRepository;
         }
+
+
 
         public PatientService()
         {

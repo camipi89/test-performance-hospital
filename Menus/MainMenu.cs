@@ -12,7 +12,7 @@ namespace testperformance.Menus
             {
                 Console.WriteLine("1.  Patient Menu");
                 Console.WriteLine("2.  Doctor Menu");
-                Console.WriteLine("4.  Appointment Menu");
+                Console.WriteLine("3.  Appointment Menu");
                 Console.WriteLine("0.  Exit");
                 Console.Write("\nSelect an option: ");
 

@@ -1,22 +1,24 @@
-using System;
-using testperformance.Repositories;
-using testperformance.Models;
 using testperformance.Service;
+using testperformance.Models;
+using testperformance.Repositories;
 
 namespace testperformance.Menus
 {
     public static class PatientMenu
     {
+        
+        
+        private static readonly PatientService _service =
+            new PatientService(new GenericRepository<Patient>());
+
         public static void Show()
         {
-            var patientService = new PatientService(); 
-
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== Patient Menu ===");
+                Console.WriteLine("===== PATIENT MENU =====");
                 Console.WriteLine("1. Register Patient");
-                Console.WriteLine("2. List Patients");
+                Console.WriteLine("2. List All Patients");
                 Console.WriteLine("3. Search Patient by ID");
                 Console.WriteLine("4. Update Patient");
                 Console.WriteLine("5. Delete Patient");
@@ -28,24 +30,24 @@ namespace testperformance.Menus
                 switch (option)
                 {
                     case "1":
-                        patientService.RegisterPatient();
+                        _service.RegisterPatient();
                         break;
                     case "2":
-                        patientService.ListPatients();
+                        _service.ListPatients();
                         break;
                     case "3":
-                        patientService.GetPatientById();
+                        _service.GetPatientById();
                         break;
                     case "4":
-                        patientService.UpdatePatient();
+                        _service.UpdatePatient();
                         break;
                     case "5":
-                        patientService.DeletePatient();
+                        _service.DeletePatient();
                         break;
                     case "0":
-                        return; 
+                        return;
                     default:
-                        Console.WriteLine("Invalid option. Please try again.");
+                        Console.WriteLine("Invalid option. Try again.");
                         break;
                 }
 
