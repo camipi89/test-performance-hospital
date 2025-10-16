@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/Coder/testperformance/testperformance.csproj",
+      "projectUniqueName": "/home/Coder/test-performance-hospital/testperformance.csproj",
       "projectName": "testperformance",
-      "projectPath": "/home/Coder/testperformance/testperformance.csproj",
+      "projectPath": "/home/Coder/test-performance-hospital/testperformance.csproj",
       "packagesPath": "/home/Coder/.nuget/packages/",
-      "outputPath": "/home/Coder/testperformance/obj/",
+      "outputPath": "/home/Coder/test-performance-hospital/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/Coder/.nuget/NuGet/NuGet.Config"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

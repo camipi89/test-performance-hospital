@@ -2,7 +2,7 @@ namespace testperformance.Interface;
 
     public interface IAtendibles
 {
-    void IAtendibles(); //attende o atender
+    void Attend(); // Method to handle attending to a task or entity
 }
-    
+
 

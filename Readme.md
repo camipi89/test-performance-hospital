@@ -45,7 +45,7 @@ testperformance
 ├── /Service
 │   ├── PatientService.cs       # Lógica de negocio para pacientes.
 │   ├── DoctorService.cs        # Lógica de negocio para doctores.
-│   └── AppointmentService.cs   # Lógica de negocio para citas médicas.
+│   └── DoctorService.cs   # Lógica de negocio para citas médicas.
 ├── /Models
 │   ├── Patient.cs              # Modelo de datos para pacientes.
 │   ├── Doctor.cs               # Modelo de datos para doctores.

@@ -9,7 +9,7 @@ namespace testperformance.Menus
         
         
         private static readonly PatientService _service =
-            new PatientService(new GenericRepository<Patient>());
+            new PatientService(new GenericRepository<Patient>()); // Inyección de dependencia
 
         public static void Show()
         {

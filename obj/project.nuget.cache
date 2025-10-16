@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "krfJeGiTi7cs/64it9DjFY9E2v5pFF/aAYeVcIm8BLO2zt7rsr84PW0PuEQ98IM4YP2dFdF2WoZrL279HIUQcA==",
+  "dgSpecHash": "jCGWMthaC9FmNFcnY7S/si2Fqu44kNnz5eTX9cXRYWu8rLcOUjM7SgIoWl1LYvy49dtwhpEgi5NR5XNX7Lz4oA==",
   "success": true,
-  "projectFilePath": "/home/Coder/testperformance/testperformance.csproj",
+  "projectFilePath": "/home/Coder/test-performance-hospital/testperformance.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

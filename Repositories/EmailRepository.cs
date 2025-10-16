@@ -1,6 +1,7 @@
 using testperformance.Interface;
 using testperformance.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace testperformance.Repositories
 {
@@ -20,6 +21,11 @@ namespace testperformance.Repositories
         {
             var index = _logs.FindIndex(l => l.Id == entity.Id);
             if (index >= 0) _logs[index] = entity;
+        }
+
+        public IEnumerable<EmailLog> GetByRecipient(string recipient)
+        {
+            return _logs.Where(l => l.Recipient?.Equals(recipient, StringComparison.OrdinalIgnoreCase) == true);
         }
     }
 }

@@ -4,25 +4,29 @@ using System.Linq;
 using testperformance.Models;
 using testperformance.Interface;
 using testperformance.Exceptions;
+using testperformance.Repositories;
 
-namespace testperformance.Services
+namespace testperformance.Service
 {
     public class AppointmentService
     {
         private readonly IGenericRepository<Appointment> _appointmentRepository;
-        private readonly IGenericRepository<Doctor> _doctorRepository;
+        private readonly DoctorRepository _doctorRepository;
         private readonly IGenericRepository<Patient> _patientRepository;
+        private readonly EmailService _emailService;
         private static int nextId = 1;
 
         public AppointmentService(
             IGenericRepository<Appointment> appointmentRepository,
-            IGenericRepository<Doctor> doctorRepository,
-            IGenericRepository<Patient> patientRepository)
+            DoctorRepository doctorRepository,
+            IGenericRepository<Patient> patientRepository,
+            EmailService emailService
+        )
         {
             _appointmentRepository = appointmentRepository;
             _doctorRepository = doctorRepository;
             _patientRepository = patientRepository;
-             _emailService = emailService;
+            _emailService = emailService;
         }
 
         // schedule new appointment

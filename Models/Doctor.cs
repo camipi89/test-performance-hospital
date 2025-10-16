@@ -1,40 +1,43 @@
+using testperformance.Models.Enum;
+
 namespace testperformance.Models
 {
     public class Doctor
     {
-        public int Id { get; set; }
-        public string Document { get; set; } = null!;
-        public string? Name { get; set; }
-        public string? Specialty { get; set; }
-        public string? Phone { get; set; }
-        public string? Email { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; } = string.Empty;
 
-        public Doctor(int id, string? document, string? name, string? specialty, string? phone, string? email)
+        public string LastName { get; set; } = string.Empty;
+        public Speciality Speciality { get; set; }
+        public DocumentType DocumentType { get; set; }
+        public string Document { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+
+        //constructor
+        public Doctor(Guid id, string name, string lastName, Speciality speciality, DocumentType documentType, string document, string phone, string email, string address)
         {
-             if (string.IsNullOrWhiteSpace(document))
-            throw new ArgumentException("the doctor's document is mandatory ", nameof(document));
-        
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("the doctor's document is mandatory", nameof(name));
-            
-            if (string.IsNullOrWhiteSpace(specialty))
-                throw new ArgumentException("the doctor's document is mandatory", nameof(specialty));
-
-            if (!string.IsNullOrEmpty(email))
-            {
-                try { 
-                    new System.Net.Mail.MailAddress(email); }
-                catch
-                   { throw new ArgumentException("Invalid format of email. ", nameof(email)); }
-            }
-
             Id = id;
-            Document = document ?? throw new ArgumentNullException(nameof(document));
             Name = name;
-            Specialty = specialty;
+            LastName = lastName;
+            Speciality = speciality;
+            DocumentType = documentType;
+            Document = document;
             Phone = phone;
             Email = email;
+            Address = address;
         }
+
+
+    
+        //metodo mostrarinformacion
+        public string ShowInformation()
+        {
+            return $"Doctor: {Name} {LastName}, Specialty: {Speciality}, Document: {DocumentType} {Document}, Phone: {Phone}, Email: {Email}, Address: {Address}";
+        }
+
+
 
 
     }

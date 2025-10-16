@@ -6,7 +6,8 @@ namespace testperformance.Menus
 {
     public static class AppointmentMenu
     {
-        private static readonly AppointmentService _service = new();
+        private static readonly DoctorService _service = new();
+        private static readonly EmailService _emailService = new EmailService(new GenericRepository<EmailLog>());
 
         public static void Show()
         {

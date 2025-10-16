@@ -9,6 +9,11 @@ namespace testperformance.Repositories
         {
             return _entities.Any(p=> p.Document == document);
         }
+
+        public IEnumerable<Patient> GetByAgeRange(int minAge, int maxAge)
+        {
+            return _entities.Where(p => p.Age >= minAge && p.Age <= maxAge);
+        }
     }
 
 }

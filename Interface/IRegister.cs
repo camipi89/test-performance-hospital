@@ -2,5 +2,5 @@ namespace testperformance.Interface;
 
 public interface Iregister
 {
-    void Iregister();
+    void Register(); // Method to handle registration logic
 }
